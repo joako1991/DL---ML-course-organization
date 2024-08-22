@@ -1,0 +1,209 @@
+\documentclass[12pt,a4paper]{article}
+\input{preamble}
+
+
+\title{Course organization - DL / ML}
+\author{Joaquin Rodriguez}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Lesson 2 : Introduction to Machine Learning}
+\begin{itemize}
+    \item  Machine learning basics. training and testing model concepts.
+    \item  Applications of ML
+    \item  Examples of datasets (MNIST, ImageNet) and popular tasks on them
+    \item  When an algorithm is data-driven or not
+    \item  Components of an algorithm : data, algo, loss
+    \item  Type of trainings (supervised, unsupervised, semi-sup, weakly-sup, reinfor)
+    \item  Tasks in computer vision
+    \item  Names of different learning problems : clustering, regression, classification, dim reduction) and their brief explanation + exemple.
+    \item  Linear classifier exemple with handcrafted features
+    \item  Visual classification challenges
+    \item  Image categorization example with ML : pipeline and explanation of each step
+    \item  Difference between DL and ML
+    \item  Supervised learning
+    \item  Hyper parameters and data splits
+    \item  Model complexity and generalization (bias, variance, underfitting, overfitting, good and bad loss plots).
+    \item  When to use and not to use NN ?
+\end{itemize}
+
+\section{Lesson 3 : Supervised Learning: Nearest Neighbors and Linear Classifiers}
+\begin{itemize}
+    \item Supervised learning : kNN and Linear Classifiers
+    \item Recall of supervised learning for classification. Different losses and metrics evolutions examples.
+    \item Loss optimization process. Gradient descend (Use case, some math, a graph to explain)
+    \item Gradient descend, SGD, Mini-batch SGD, 
+    \item Problems of non-convex loss, or non differentiable loss, etc.
+    \item Metrics and model evaluations : confusion matrix (with accuracy) for multi-class classification,
+    \item definition of accuracy, precision and recall, AUC (Area under the curve), IoU, F1 Score (dice index).
+    \item Supervised learning kNN, problem of non-normalized data (bias with one of the parameters), drawbacks.
+    \item KD-tree basis. (Maybe remove ?)
+    \item kNN (nearest neighbour) classifier : http://cs231n.github.io/classification/
+    \item Linear classifiers : basic explanation, perceptron (math et biological model), loss, how to train (not to use the metric loss but L2 loss). The math behind LC (convex loss, gradient, optimization, etc), drawbacks of linear classifiers.
+    \item Logistic regression (Binary classification w / sigmoid). Advantages, regularization.
+    Why sigmoid is used in binary class (give an example with three classes with
+    close values. Is it equal to 1?) ? Sigmoid properties. linear + sigmoid == linear in log.
+    Sigmoid with infinity constant == step
+    \item kNN vs linear regression : pros and cons
+\end{itemize}
+
+\section*{Lesson 4 : NN \& CNN}
+\begin{itemize}
+    \item  Image recognition pipeline (history before NN)
+    \item  Neural networks : brief explanation, biological
+    explanation
+    \item  Basic neural network (MLP) math model + activations
+    and effect of the non-linear activations. universal
+    function approximator (such as the Taylor series and
+    the Fourier Series), multiple layers representations,
+    parameters count, example code with PyTorch
+    \item  Training process, loss functions, classification example
+    (forward pass + loss calculation), and backprop,
+    gradient descent and SGD, chain rule, grpahical and
+    numérical examples (say it works for any network
+    architecture) : Take example from the youtube tutorial about
+    how to write a backprop algorithm.
+    \item  PyTorch trainer, main, and test code example.
+    \item  Presentation of MNIST and simple NN classifier exercise
+    (notebook).
+    \item  CNN : classification pipeline, question about why not using
+    always a MLP network for classification (NMIST app exemple).
+    average images for each sample in the set.
+    \item  Challenges of any image classification app (small objects,
+    not all of them the same, not centered in the image. Talk about
+    how WE think the problem in primate visual system. For convolutions,
+    Conv is a good candidate.
+    \item  Show possible architecture to solve the MNIST example and explain.
+    \item  How to compute convolutions. Weights == local templates.
+    \item  Different operations in a CNN, stride, dilation, padding. Input/output size.
+    \item  Avg pooling, max pooling, dropout, etc
+    \item  CNN vs FCNN : FCNN have layers at the same size of the input.
+    CNN reduces dimensions and gets vectors with concentrated information.
+    Upsampling (max, avg, etc unpooling), transpose conv.
+    \item  Examples of CNN architectures : FCN, (2011), DeconvNet (2015),
+    SegNet (2017), U-Net (2015).
+    \item  History of CNN, FCN, Backprop.
+    \item  Example with MNIST classification (Lecun 1998)
+    \item  Advances in DL depuis l'année 2000 : ImageNet, CNN, Region-based
+    CNN, AlexNet, VGG, ResNet
+\end{itemize}
+
+\section*{Lesson 5 : Representation learning, AE and Gen. models}
+\begin{itemize}
+    \item Assignment I : Rep. Learning with AE and VAE
+    
+    \item Measure similarity between features, siamese NN.
+    Example : when we see the same person from different
+    views, how do we know it is the same person ?
+    can also be used for re-coloring an image.
+    
+    \item Representative features : good representation --> network trained
+    in a large diverse dataset, and then specialized for an specific task.
+    If the two images correspond to the same object, then the descriptors should
+    be almost the same.
+    
+    \item Definition of metric and its main properties.
+    
+    \item Self-supervised : Create your own labels from the input data
+    (missing pixels from an image, and then do inpainting)
+    and unsupervised : no labels at all, like depth estimation from
+    stereo and photogrametry theory.
+    
+    \item Auto encoders as self-supervised example. Definition, architecture, loss. particular example
+    of denoising the dataset MNIST. 2D representation of the features embeddings to show
+    how the images of the numbers are distributed. Size of the bottleneck effect.
+    
+    \item Applications of AE : colorization, denoising, data aug, inpainting,
+    
+    \item Properties and drawbacks of AE
+    
+    \item Practical example of AE
+    
+    \item self-supervised learning  for data representation. Possible applications. Concrete example
+    with colorization, transformation prediction, and siamese methods. Loss options.
+    
+    \item Digital similarity measurement with MNIST : practical example
+    
+    \item Generative models : Variational Auto Encoders. Drawbacks of AE, full explanation of VAE.
+    
+    \item Objectif of auto-encoders : compress information. Learn what is really important to
+    differentiate two images : scale, rotation, translation, color, shape, etc.
+    
+    \item NOTE: KL Divergence is to avoid distributions too separated. the KL divergence loss
+    makes the points closer. If it is the only loss, all the points are mixed in a single circle.
+    
+    \item  NOTE 2 : The KL divergence in the course is the specific case for Gaussians. The probability
+    effect on the network is to avoid memorization of the training data.
+    
+    
+    \item VAE and parametrization trick to run the gradient descent algortihm. If the latent space is
+    2D (special case of MNIST dataset), we can generate data and visualize the space.
+    
+    \item Exercise : convert AE into VAE with reconstruction and KL loss.
+    
+    \item GANs : Creating a model whose output distribution is close to the training dataset
+    distribution. AE and VAE recall, and its drawbacks : VAE and AE do not really generate
+    new images. Just sample from the latent space.
+    
+    \item Generative Adversarial networks theory. What they are, how to train, advantages. architecture, loss. Training
+    methodology (algorithm).  Explanation of the loss part and questioning about it.
+    
+    
+    \item NOTE: For the sake of exemplifying GANs working method, we do not need an encoder
+    at the beginning. We just sample a vector (or image) from the latent space of the auto-encoder
+    world. It can be anything. Then, an image will be output. With this image and the real
+    images we constitute a dataset : a dataset of fake images and real images. With them, we
+    train the discriminator. Once the discriminator is good, we train the generator to produce
+    a better dataset of fake images. And so on. Actually, we create pairs of real / fake images.
+    
+    \item Mode collapse ; the GAN generate outputs all alike, even though the input is very vary. In this
+    mode, even though the system keeps updating, the outputs will change to be able to fool
+    the discriminator, but these outputs still of a single type. Instead, what we want from a GAN
+    is to have a wide range of options for a wide range of inputs.
+    
+    \item Examples : cartoonize an image, create an image of a person based on a pose or a cartoon face, etc.
+    
+    \item examples in the slides : CycleGANs and their limitations. Which training methods for GANs
+    do actually converge?
+\end{itemize}
+
+\section*{Lesson 6 : Sequence learning and RNN}
+\begin{itemize}
+    \item Sequence learning : learn temporal patterns (to predict future), text sequences, image captioning,
+    text translation, 
+    
+    \item Conventional CNN receive fixed input and output a fixed size data, no matter the
+    previous output. The amount of computational steps is deterministic.
+    
+    \item RNN : They include loops to keep data in the network : current data + previous state. Each cell
+    receives an input and the previous state.  Example : classify a text as positive or negative
+    sentiment. Drawback : the size of the text is not fixed.
+    
+    \item Example of Encoder-Decoder (high level architecture).
+    
+    \item Summary of RNN depending on the number of inputs and outputs.
+    
+    \item Bi-directional RNN, GPT-2, BERT
+    
+    \item Problems of RNN : We need the previous state to compute the next one. so no multi-threading thus slow.
+    
+    \item Recurrent Units : Basic (vanilla) RNN Unit, Long Short term memory (LSTM), Gated
+    Recurrent Unit (GRU).
+    
+    \item Explanation of each recurrent unit
+        \begin{itemize}
+            \item Vanilla RNN : Exploding / Vanishing gradients.
+            \item LSTM
+            \item GRU
+        \end{itemize} 
+    
+    \item Example with basic RNN (an implementation of the network is missing).
+    
+    \item Applications : Language modeling, sequence classification and image captioning.
+    Character RNN for Lang. Modeling
+\end{itemize}
+
+\end{document}
